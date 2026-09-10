@@ -1,0 +1,57 @@
+﻿@model ProductApp.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+<h1>Product Details</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            Product ID
+        </dt>
+        <dd class="col-sm-9">
+            @Model.ProductId
+        </dd>
+
+        <dt class="col-sm-3">
+            Name
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Name
+        </dd>
+
+        <dt class="col-sm-3">
+            Price
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Price.ToString("C")
+        </dd>
+
+        <dt class="col-sm-3">
+            Barcode
+        </dt>
+        <dd class="col-sm-9">
+            @(string.IsNullOrEmpty(Model.Barcode) ? "N/A" : Model.Barcode)
+        </dd>
+
+        <dt class="col-sm-3">
+            Category
+        </dt>
+        <dd class="col-sm-9">
+            @(string.IsNullOrEmpty(Model.Category) ? "N/A" : Model.Category)
+        </dd>
+
+        <dt class="col-sm-3">
+            Stock Quantity
+        </dt>
+        <dd class="col-sm-9">
+            @Model.StockQuantity
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
